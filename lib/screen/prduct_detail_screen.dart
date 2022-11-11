@@ -19,13 +19,13 @@ class ProductDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final productId = ModalRoute.of(context).settings.arguments as String;
-    // final loadedProduct = Provider.of<Products>(context)Try importing the library that defines 'arguments', correcting the name to the name of an
-    //     .items
-    //     .firstWhere((prod) => prod.id == productId);
+    final productId = ModalRoute.of(context)!.settings.arguments as String;
+    final loadedProduct = Provider.of<Products>(context)
+        .items
+        .firstWhere((prod) => prod.id == productId);
     return Scaffold(
       appBar: AppBar(
-        title: Text("loadedProduct.title"),
+        title: Text(loadedProduct.title),
       ),
     );
   }
